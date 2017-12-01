@@ -1,0 +1,14 @@
+{
+  "name": "restful_api_start_kit",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/andy6804tw/RESTful_API_start_kit.git",
+  "author": "Tsai Yi Lin <andy6804tw@yahoo.com.tw>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
