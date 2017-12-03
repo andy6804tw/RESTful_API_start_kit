@@ -11,9 +11,12 @@
     "start": "nodemon dist/index.bundle.js"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "joi": "^13.0.2"
+    "joi": "^13.0.2",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
