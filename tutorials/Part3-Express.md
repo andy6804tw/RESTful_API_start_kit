@@ -10,13 +10,13 @@
 ```bash
 ┌── config
 │   ├── config.js  // joi驗證與匯出全域變數
-│   └── express.js  // express與其他middleware設定
+│   └── express.js  // express與其他middleware設定
 ├── server
 │   ├── controllers  // 處理控制流程和回應
 │   ├── helper  // 處理例外Error
 │   ├── modules // 後端資料庫進行運作
 │   └── routes  // 各路徑的設定點
-│       └── index.route.js  // 主路由
+│       └── index.route.js  // 主路由
 │
 └── index.js  // 程式進入點
     
@@ -31,9 +31,9 @@
   yarn add dotenv
   ```
 
-2. 建立 `.env` 檔
+2. 建立 `.env` 檔
     
-    dotenv 是將.env文件中的全域變數加載到 process.env。這個檔要建立在最外層資料夾，在其他文件中只要呼叫 `PROCESS.ENV.[變數名稱]` 就能將此全域變數撈出來了，通常還會搭配 joi 來做設定。
+    dotenv 是將.env文件中的全域變數加載到 process.env。這個檔要建立在最外層資料夾，在其他文件中只要呼叫 `PROCESS.ENV.[變數名稱]` 就能將此全域變數撈出來了，通常還會搭配 joi 來做設定。
 
   ```
       /* .env 全域變數的設定檔 */
@@ -51,9 +51,9 @@
   yarn add joi
   ```
 
-2. 建立 `config.js` 檔
+2. 建立 `config.js` 檔
 
-    在 `/src/config` 底下建立一個 `config.js` 裡面專門建立一個 config  物件變數並匯出
+    在 `/src/config` 底下建立一個 `config.js` 裡面專門建立一個 config  物件變數並匯出
 
   ```js
   import Joi from 'joi';
