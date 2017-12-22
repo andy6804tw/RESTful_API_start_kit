@@ -5,5 +5,5 @@
 ## Feature 功能
 - ESLint 使用 Airbnb 寫作風格
   - [Link 連結](/tutorials/Part1-ESLint.md)
-  - [Tutorial 教學](https://andy6804tw.github.io/2017/12/22/ESLint-tutorial/)
+  - [Tutorial 教學](/tutorials/Part1-ESLint.md)
 
