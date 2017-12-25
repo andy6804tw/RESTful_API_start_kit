@@ -15,3 +15,6 @@
 - middleware 常用安裝
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part4-middleware)
   - [Tutorial 教學](/tutorials/Part4-middleware.md)
+- 環境參數 dotenv 與 joi 驗證
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part5-joi-dotenv-config)
+  - [Tutorial 教學](/tutorials/Part5-joi-dotenv-config.md)
