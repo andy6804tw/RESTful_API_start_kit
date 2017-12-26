@@ -49,7 +49,6 @@ export default config;
 
 joi 的 [GitHub](https://github.com/hapijs/joi/blob/v13.0.2/API.md) 官方文件中有很多關於變數的規範，有興趣可以看去看看。
 
-
 ## 使用 Express
 
 ##### 1.安裝 express

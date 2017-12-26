@@ -18,3 +18,6 @@
 - 環境參數 dotenv 與 joi 驗證
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part5-joi-dotenv-config)
   - [Tutorial 教學](/tutorials/Part5-joi-dotenv-config.md)
+- API與資料庫連線設定
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part6-mysql-connect)
+  - [Tutorial 教學](/tutorials/Part6-mysql-connect.md)
