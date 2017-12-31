@@ -58,8 +58,58 @@ const createArticle = (insertValues) => {
   });
 };
 
-export default {
-  selectArticle,
-  createArticle
+/* Article PUT 修改 */
+const modifyArticle = (insertValues, productId) => {
+  return new Promise((resolve, reject) => {
+    connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
+      if (connectionError) {
+        reject(connectionError); // 若連線有問題回傳錯誤
+      } else { // Article資料表修改指定id一筆資料
+        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, productId], (error, result) => {
+          if (error) {
+            console.error('SQL error: ', error);// 寫入資料庫有問題時回傳錯誤
+            reject(error);
+          } else if (result.affectedRows === 0) { // 寫入時發現無該筆資料
+            resolve('請確認修改Id！');
+          } else if (result.message.match('Changed: 1')) { // 寫入成功
+            resolve('資料修改成功');
+          } else { 
+            resolve('資料無異動');
+          }
+          connection.release();
+        });
+      }
+    });
+  });
 };
 
+/* Article  DELETE 刪除 */
+const deleteArticle = (productId) => {
+  return new Promise((resolve, reject) => {
+    connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
+      if (connectionError) {
+        reject(connectionError); // 若連線有問題回傳錯誤
+      } else { // Article資料表刪除指定id一筆資料
+        connection.query('DELETE FROM Article WHERE article_id = ?', productId, (error, result) => {
+          if (error) {
+            console.error('SQL error: ', error);// 資料庫存取有問題時回傳錯誤
+            reject(error);
+          } else if (result.affectedRows === 1) {
+            resolve('刪除成功！');
+          } else {
+            resolve('刪除失敗！');
+          }
+          connection.release();
+        });
+      }
+    });
+  });
+};
+
+
+export default {
+  selectArticle,
+  createArticle,
+  modifyArticle,
+  deleteArticle
+};

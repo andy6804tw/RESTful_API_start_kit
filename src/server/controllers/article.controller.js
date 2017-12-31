@@ -21,6 +21,28 @@ const articlePost = (req, res) => {
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
 };
 
+/* Article PUT 修改 */
+const articlePut = (req, res) => {
+  // 取得修改id
+  const articleId = req.params.article_id;
+  console.log(articleId);
+  // 取得修改參數
+  const insertValues = req.body;
+  articleModule.modifyArticle(insertValues, articleId).then((result) => {
+    res.send(result); // 回傳修改成功訊息
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
+/* Article  DELETE 刪除 */
+const articleDelete = (req, res) => {
+  // 取得刪除id
+  const articleId = req.params.article_id;
+  articleModule.deleteArticle(articleId).then((result) => {
+    res.send(result); // 回傳刪除成功訊息
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
+
 const test = (req, res) => {
   res.send('測試');
 };
@@ -29,5 +51,7 @@ const test = (req, res) => {
 export default {
   test,
   articleGet,
-  articlePost
+  articlePost,
+  articlePut,
+  articleDelete
 };
