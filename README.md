@@ -30,3 +30,6 @@
 - User新增、顯示
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part9-User-api(1))
   - [Tutorial 教學](/tutorials/Part9-User-api(1).md)
+- User修改、刪除
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part10-User-api(2))
+  - [Tutorial 教學](/tutorials/Part10-User-api(2).md)

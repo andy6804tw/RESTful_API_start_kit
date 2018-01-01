@@ -25,7 +25,6 @@ const articlePost = (req, res) => {
 const articlePut = (req, res) => {
   // 取得修改id
   const articleId = req.params.article_id;
-  console.log(articleId);
   // 取得修改參數
   const insertValues = req.body;
   articleModule.modifyArticle(insertValues, articleId).then((result) => {

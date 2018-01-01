@@ -20,6 +20,26 @@ const userPost = (req, res) => {
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
 };
 
+/* User PUT 修改 */
+const userPut = (req, res) => {
+  // 取得修改id
+  const userId = req.params.user_id;
+  // 取得修改參數
+  const insertValues = req.body;
+  userModule.modifyUser(insertValues, userId).then((result) => {
+    res.send(result); // 回傳修改成功訊息
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
+/* User  DELETE 刪除 */
+const userDelete = (req, res) => {
+  // 取得刪除id
+  const userId = req.params.user_id;
+  userModule.deleteUser(userId).then((result) => {
+    res.send(result); // 回傳刪除成功訊息
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
 const test = (req, res) => {
   res.send('測試');
 };
@@ -28,5 +48,7 @@ const test = (req, res) => {
 export default {
   test,
   userGet,
-  userPost
+  userPost,
+  userPut,
+  userDelete
 };
