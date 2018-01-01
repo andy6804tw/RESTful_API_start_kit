@@ -1,6 +1,7 @@
 import express from 'express';
 // Router
 import article from './article.route';
+import user from './user.route';
 
 import config from './../../config/config';
 
@@ -14,6 +15,8 @@ router.get('/', (req, res) => {
 
 /** Article Router */
 router.use('/article', article);
+/** User Router */
+router.use('/user', user);
 
 
 export default router;

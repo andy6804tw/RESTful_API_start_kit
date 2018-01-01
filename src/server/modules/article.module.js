@@ -73,7 +73,7 @@ const modifyArticle = (insertValues, productId) => {
             resolve('請確認修改Id！');
           } else if (result.message.match('Changed: 1')) { // 寫入成功
             resolve('資料修改成功');
-          } else { 
+          } else {
             resolve('資料無異動');
           }
           connection.release();
