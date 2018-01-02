@@ -33,3 +33,6 @@
 - User修改、刪除
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part10-User-api(2))
   - [Tutorial 教學](/tutorials/Part10-User-api(2).md)
+- 為POST添加joi
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part11-post-joi)
+  - [Tutorial 教學](/tutorials/Part11-post-joi.md)
