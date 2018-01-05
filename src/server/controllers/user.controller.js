@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import userModule from '../modules/user.module';
 
 /**
@@ -14,7 +15,11 @@ const userGet = (req, res) => {
 /* User  POST 新增 */
 const userPost = (req, res) => {
   // 取得新增參數
-  const insertValues = req.body;
+  const insertValues = {
+    user_name: req.body.user_name,
+    user_mail: req.body.user_mail,
+    user_password: bcrypt.hashSync(req.body.user_password, 10) // 密碼加密
+  };
   userModule.createUser(insertValues).then((result) => {
     res.send(result); // 成功回傳result結果
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
