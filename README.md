@@ -37,5 +37,8 @@
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part11-post-joi)
   - [Tutorial 教學](/tutorials/Part11-post-joi.md)
 - 使用者密碼加密
-  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part12-User-login)
-  - [Tutorial 教學](/tutorials/Part12-User-login.md)
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part12-User-bcrypt)
+  - [Tutorial 教學](/tutorials/Part12-User-bcrypt.md)
+- 使用者登入
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part13-User-login)
+  - [Tutorial 教學](/tutorials/Part13-User-login.md)
