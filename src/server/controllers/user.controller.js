@@ -49,11 +49,21 @@ const test = (req, res) => {
   res.send('測試');
 };
 
+/* User  POST 登入(Login) */
+const userLogin = (req, res) => {
+  // 取得帳密
+  const insertValues = req.body;
+  userModule.selectUserLogin(insertValues).then((result) => {
+    res.send(result); // 成功回傳result結果
+  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+};
+
 
 export default {
   test,
   userGet,
   userPost,
   userPut,
-  userDelete
+  userDelete,
+  userLogin
 };
