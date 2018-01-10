@@ -1,6 +1,7 @@
 import mysql from 'mysql';
 import bcrypt from 'bcrypt';
 import config from '../../config/config';
+import APPError from '../helper/AppError';
 
 const connectionPool = mysql.createPool({
   connectionLimit: 10,
@@ -120,7 +121,7 @@ const selectUserLogin = (insertValues) => {
               console.error('SQL error: ', error);
               reject(error); // 寫入資料庫有問題時回傳錯誤
             } else if (Object.keys(result).length === 0) {
-              resolve('信箱尚未註冊！');
+              reject(new APPError.LoginError1()); // 信箱尚未註冊
             } else {
               const dbHashPassword = result[0].user_password; // 資料庫加密後的密碼
               const userPassword = insertValues.user_password; // 使用者登入輸入的密碼
@@ -128,7 +129,7 @@ const selectUserLogin = (insertValues) => {
                 if (res) {
                   resolve('登入成功'); // 登入成功
                 } else {
-                  resolve('您輸入的密碼有誤！'); // 登入失敗
+                  reject(new APPError.LoginError2()); // 登入失敗 輸入的密碼有誤
                 }
               });
             }
