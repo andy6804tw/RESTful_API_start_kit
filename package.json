@@ -17,6 +17,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-validation": "^1.0.2",
+    "http-status": "^1.0.1",
     "joi": "^13.0.2",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0"

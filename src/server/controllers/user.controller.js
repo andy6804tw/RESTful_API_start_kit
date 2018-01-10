@@ -50,12 +50,12 @@ const test = (req, res) => {
 };
 
 /* User  POST 登入(Login) */
-const userLogin = (req, res) => {
+const userLogin = (req, res, next) => {
   // 取得帳密
   const insertValues = req.body;
   userModule.selectUserLogin(insertValues).then((result) => {
     res.send(result); // 成功回傳result結果
-  }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
+  }).catch((error) => { next(error); }); // 失敗回傳錯誤訊息
 };
 
 

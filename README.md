@@ -42,3 +42,6 @@
 - 使用者登入
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part13-User-login)
   - [Tutorial 教學](/tutorials/Part13-User-login.md)
+- API Error
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part14-API-Error)
+  - [Tutorial 教學](/tutorials/Part14-API-Error.md)
