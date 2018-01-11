@@ -45,3 +45,6 @@
 - API Error
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part14-API-Error)
   - [Tutorial 教學](/tutorials/Part14-API-Error.md)
+- 用JWT取代傳統Session來驗證使用者身份
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part15-User-jsonwebtoken)
+  - [Tutorial 教學](/tutorials/Part15-User-jsonwebtoken.md)

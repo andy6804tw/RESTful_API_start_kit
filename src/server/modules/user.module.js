@@ -1,5 +1,6 @@
 import mysql from 'mysql';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import config from '../../config/config';
 import APPError from '../helper/AppError';
 
@@ -127,7 +128,15 @@ const selectUserLogin = (insertValues) => {
               const userPassword = insertValues.user_password; // 使用者登入輸入的密碼
               bcrypt.compare(userPassword, dbHashPassword).then((res) => { // 使用bcrypt做解密驗證
                 if (res) {
-                  resolve('登入成功'); // 登入成功
+                  // 產生 JWT
+                  const payload = {
+                    user_id: result[0].user_id,
+                    user_name: result[0].user_name,
+                    user_mail: result[0].user_mail
+                  };
+                  // 取得 API Token
+                  const token = jwt.sign({ payload, exp: Math.floor(Date.now() / 1000) + (60 * 15) }, 'my_secret_key');
+                  resolve(Object.assign({ code: 200 }, { message: '登入成功', token })); // 登入成功
                 } else {
                   reject(new APPError.LoginError2()); // 登入失敗 輸入的密碼有誤
                 }
