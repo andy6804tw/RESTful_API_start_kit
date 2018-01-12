@@ -1,4 +1,5 @@
 import mysql from 'mysql';
+import jwt from 'jsonwebtoken';
 import config from '../../config/config';
 
 const connectionPool = mysql.createPool({
@@ -106,10 +107,29 @@ const deleteArticle = (productId) => {
   });
 };
 
+/*  Article GET JWT取得個人文章  */
+const selectPersonalArticle = (token) => {
+  return new Promise((resolve, reject) => {
+    jwt.verify(token, 'my_secret_key', (err, payload) => {
+      if (err) {
+        reject(err); // 驗證失敗回傳錯誤
+      } else {
+        /* ...撈取資料庫該用戶的所有文章
+           ...
+           ...
+           ...
+        */
+        resolve(payload); // 驗證成功回傳 payload data
+      }
+    });
+  });
+};
+
 
 export default {
   selectArticle,
   createArticle,
   modifyArticle,
-  deleteArticle
+  deleteArticle,
+  selectPersonalArticle
 };
