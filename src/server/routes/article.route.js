@@ -13,5 +13,19 @@ router.route('/:article_id')
   .put(articleCtrl.articlePut) /** 修改 Article 值組 */
   .delete(articleCtrl.articleDelete); /** 刪除 Article 值組 */
 
+const ensureToken = (req, res, next) => {
+  const bearerHeader = req.headers.authorization;
+  if (typeof bearerHeader !== 'undefined') {
+    const bearer = bearerHeader.split(' ');
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+    next();
+  } else {
+    res.status(403).send(Object.assign({ code: 403 }, { message: '您尚未登入！' }));
+  }
+};
+
+router.get('/personal', ensureToken, articleCtrl.articlePersonalGet);
+
 
 export default router;
