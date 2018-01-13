@@ -48,6 +48,9 @@
 - 用JWT取代傳統Session來驗證使用者身份
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part15-User-jsonwebtoken)
   - [Tutorial 教學](/tutorials/Part15-User-jsonwebtoken.md)
-- (實作)使用JWT訪問API內容(1)
+- (實作)使用JWT訪問API內容(上)
   - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part16-get-personal-article(1))
   - [Tutorial 教學](/tutorials/Part16-get-personal-article(1).md)
+- (實作)使用JWT訪問API內容(下)
+  - [Link 連結](https://github.com/andy6804tw/RESTful_API_start_kit/tree/Part17-get-personal-article(2))
+  - [Tutorial 教學](/tutorials/Part17-get-personal-article(2).md)

@@ -25,7 +25,6 @@ const selectArticle = () => {
             Article`
           , (error, result) => {
             if (error) {
-              console.error('SQL error: ', error);
               reject(error); // 寫入資料庫有問題時回傳錯誤
             } else {
               resolve(result); // 撈取成功回傳 JSON 資料
@@ -47,7 +46,6 @@ const createArticle = (insertValues) => {
       } else {
         connection.query('INSERT INTO Article SET ?', insertValues, (error, result) => { // Article資料表寫入一筆資料
           if (error) {
-            console.error('SQL error: ', error);
             reject(error); // 寫入資料庫有問題時回傳錯誤
           } else if (result.affectedRows === 1) {
             resolve(`新增成功！ article_id: ${result.insertId}`); // 寫入成功回傳寫入id
@@ -60,15 +58,15 @@ const createArticle = (insertValues) => {
 };
 
 /* Article PUT 修改 */
-const modifyArticle = (insertValues, productId) => {
+const modifyArticle = (insertValues, userId) => {
   return new Promise((resolve, reject) => {
     connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
       if (connectionError) {
         reject(connectionError); // 若連線有問題回傳錯誤
       } else { // Article資料表修改指定id一筆資料
-        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, productId], (error, result) => {
+        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, userId], (error, result) => {
           if (error) {
-            console.error('SQL error: ', error);// 寫入資料庫有問題時回傳錯誤
+            // 寫入資料庫有問題時回傳錯誤
             reject(error);
           } else if (result.affectedRows === 0) { // 寫入時發現無該筆資料
             resolve('請確認修改Id！');
@@ -85,15 +83,15 @@ const modifyArticle = (insertValues, productId) => {
 };
 
 /* Article  DELETE 刪除 */
-const deleteArticle = (productId) => {
+const deleteArticle = (userId) => {
   return new Promise((resolve, reject) => {
     connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
       if (connectionError) {
         reject(connectionError); // 若連線有問題回傳錯誤
       } else { // Article資料表刪除指定id一筆資料
-        connection.query('DELETE FROM Article WHERE article_id = ?', productId, (error, result) => {
+        connection.query('DELETE FROM Article WHERE article_id = ?', userId, (error, result) => {
           if (error) {
-            console.error('SQL error: ', error);// 資料庫存取有問題時回傳錯誤
+            // 資料庫存取有問題時回傳錯誤
             reject(error);
           } else if (result.affectedRows === 1) {
             resolve('刪除成功！');
@@ -110,16 +108,31 @@ const deleteArticle = (productId) => {
 /*  Article GET JWT取得個人文章  */
 const selectPersonalArticle = (token) => {
   return new Promise((resolve, reject) => {
-    jwt.verify(token, 'my_secret_key', (err, payload) => {
+    // JWT解密驗證
+    jwt.verify(token, 'my_secret_key', (err, decoded) => {
       if (err) {
         reject(err); // 驗證失敗回傳錯誤
       } else {
-        /* ...撈取資料庫該用戶的所有文章
-           ...
-           ...
-           ...
-        */
-        resolve(payload); // 驗證成功回傳 payload data
+        // JWT 驗證成功 ->取得用戶 user_id
+        const userId = decoded.payload.user_id;
+        // JWT 驗證成功 -> 撈取該使用者的所有文章
+        connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
+          if (connectionError) {
+            reject(connectionError); // 若連線有問題回傳錯誤
+          } else {
+            connection.query( // Article 撈取 user_id 的所有值組
+              'SELECT * FROM Article WHERE user_id = ?', [userId]
+              , (error, result) => {
+                if (error) {
+                  reject(error); // 寫入資料庫有問題時回傳錯誤
+                } else {
+                  resolve(result); // 撈取成功回傳 JSON 資料
+                }
+                connection.release();
+              }
+            );
+          }
+        });
       }
     });
   });
