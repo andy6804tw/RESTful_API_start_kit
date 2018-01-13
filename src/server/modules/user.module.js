@@ -26,7 +26,6 @@ const selectUser = () => {
             User`
           , (error, result) => {
             if (error) {
-              console.error('SQL error: ', error);
               reject(error); // 寫入資料庫有問題時回傳錯誤
             } else {
               resolve(result); // 撈取成功回傳 JSON 資料
@@ -48,7 +47,6 @@ const createUser = (insertValues) => {
       } else {
         connection.query('INSERT INTO User SET ?', insertValues, (error, result) => { // User資料表寫入一筆資料
           if (error) {
-            console.error('SQL error: ', error);
             reject(error); // 寫入資料庫有問題時回傳錯誤
           } else if (result.affectedRows === 1) {
             resolve(`新增成功！ user_id: ${result.insertId}`); // 寫入成功回傳寫入id
@@ -69,7 +67,7 @@ const modifyUser = (insertValues, userId) => {
       } else { // User資料表修改指定id一筆資料
         connection.query('UPDATE User SET ? WHERE user_id = ?', [insertValues, userId], (error, result) => {
           if (error) {
-            console.error('SQL error: ', error);// 寫入資料庫有問題時回傳錯誤
+            // 寫入資料庫有問題時回傳錯誤
             reject(error);
           } else if (result.affectedRows === 0) { // 寫入時發現無該筆資料
             resolve('請確認修改Id！');
@@ -94,7 +92,7 @@ const deleteUser = (userId) => {
       } else { // User資料表刪除指定id一筆資料
         connection.query('DELETE FROM User WHERE user_id = ?', userId, (error, result) => {
           if (error) {
-            console.error('SQL error: ', error);// 資料庫存取有問題時回傳錯誤
+            // 資料庫存取有問題時回傳錯誤
             reject(error);
           } else if (result.affectedRows === 1) {
             resolve('刪除成功！');
@@ -119,7 +117,6 @@ const selectUserLogin = (insertValues) => {
           'SELECT * FROM User WHERE user_mail = ?',
           insertValues.user_mail, (error, result) => {
             if (error) {
-              console.error('SQL error: ', error);
               reject(error); // 寫入資料庫有問題時回傳錯誤
             } else if (Object.keys(result).length === 0) {
               reject(new APPError.LoginError1()); // 信箱尚未註冊
