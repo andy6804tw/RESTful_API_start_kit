@@ -14,6 +14,6 @@
       "error",
       "never"
     ], // 該規則強制使用對象和數組文字中的逗號
-    "no-console": 0 // 關掉console.log()錯誤
+    "no-console": 0, // 關掉console.log()錯誤
   }
 }
