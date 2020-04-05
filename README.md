@@ -1,6 +1,13 @@
 # Simple RESTful API Start Kit 2017
-
 這包環境可以讓你快速開發一個具有 REST 風格的 API 內部包含 Moudle 和 Controller (未包括 View)，提供一個輕巧快速的 Start Kit，並有詳細的套件解說，讓你了解內部架構。
+
+## 2020/04/05 更新
+感謝大家的支持與鼓勵!本人最近開設YouTube頻道，打算會拍攝一系列Node.js API手把手教學。順便更新 `RESTful_API_start_kit` 內容正在設計中，請各位期待~
+
+想要了解更多的朋友歡迎關注我的頻道，您的訂閱就是最大的支持～如果想學其他什麼內容也歡迎許願XD
+
+<a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A" target="_blank">
+    <img src="https://media0.giphy.com/media/KFnSuizdGVCtkVFOXM/source.gif" width="15%"></a>
 
 ## Feature 功能
 - ESLint 使用 Airbnb 寫作風格
