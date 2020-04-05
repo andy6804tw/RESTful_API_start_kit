@@ -21,7 +21,7 @@
     "http-status": "^1.0.1",
     "joi": "^13.0.2",
     "jsonwebtoken": "^8.1.0",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "mysql": "^2.15.0"
   },
   "devDependencies": {
