@@ -20,7 +20,7 @@
     "express-validation": "^1.0.2",
     "http-status": "^1.0.1",
     "joi": "^13.0.2",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "morgan": "^1.9.0",
     "mysql": "^2.15.0"
   },
